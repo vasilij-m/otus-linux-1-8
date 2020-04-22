@@ -1,7 +1,7 @@
 **1. Создать свой RPM (можно взять свое приложение, либо собрать к примеру апач с определенными опциями)**
 
 Для сборки RPM-пакета необходимо установить следующие пакеты:
-redhat-lsb-core wget rpmdevtools rpm-build createrepo yum-utils
+`redhat-lsb-core wget rpmdevtools rpm-build createrepo yum-utils`
 
 Будем собирать пакет `NGINX` с модулем `openssl`.
 
@@ -110,7 +110,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 ```
 Проверим, как это отображается в браузере:
 
-![alt text](resources/screen1.png)
+![alt text](screenshots/screen1.png)
 
 Создадим `.repo` файл с информацией о нашем репозитории в `/etc/yum.repos.d`:
 ```
@@ -174,6 +174,6 @@ Complete!
 ```
 ***Для проверки задания выполнить `vagrant up`, открыть в браузере (или curl'ом) http://192.168.11.101/repo/, далее `vagrant ssh` и установить Percona `sudo yum install percona-release -y`.***
 
-**2. Задание \*: реализовать дополнительно пакет через docker**
+**3. Задание \*: реализовать дополнительно пакет через docker**
 
 Реализована сборка rpm-пакета `NGINX` с модулем `openssl`, а также создание репозитория. Для проверки выполнить команду `docker run -d -p 80:80 --name nginxrpm vasiilij/nginxrpm:1.0` и пройти в браузере на страницу `http://localhost/repo/`
