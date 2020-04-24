@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
           
           box.vm.provision "shell", inline: <<-SHELL
             mkdir -p ~root/.ssh; cp ~vagrant/.ssh/auth* ~root/.ssh
-            sudo yum install -y redhat-lsb-core wget rpmdevtools rpm-build createrepo yum-utils
+            sudo yum install -y redhat-lsb-core wget rpmdevtools rpm-build createrepo yum-utils gcc
           SHELL
           box.vm.provision "repobuild", type: "shell", path: "./scripts/repobuild.sh"
        end
